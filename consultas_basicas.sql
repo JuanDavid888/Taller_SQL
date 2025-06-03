@@ -13,3 +13,8 @@ WHERE ciudad = 'Madrid';
 -- 3
 SELECT nombre, precio FROM productos
 WHERE precio > 100000;
+
+-- 4
+SELECT nombre, puesto, salario FROM empleados as e
+JOIN usuarios as u ON e.usuario_id = u.usuario_id
+WHERE salario > 2500000;
