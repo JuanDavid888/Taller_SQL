@@ -42,3 +42,7 @@ SELECT AVG(salario) AS promedio_salarios FROM empleados;
 -- 10
 SELECT categoria, COUNT(categoria) AS numero_productos FROM productos
 GROUP BY categoria;
+
+-- 11
+SELECT nombre, precio AS precio_COP, ROUND(precio / 4283.62, 2) AS precio_USD FROM productos
+WHERE precio > 75;
