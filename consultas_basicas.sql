@@ -46,3 +46,6 @@ GROUP BY categoria;
 -- 11
 SELECT nombre, precio AS precio_COP, ROUND(precio / 4283.62, 2) AS precio_USD FROM productos
 WHERE precio > 75;
+
+-- 12
+SELECT * FROM proveedores;
