@@ -31,3 +31,12 @@ SELECT
 FROM pedidos AS pe
 LEFT JOIN detalles_pedidos AS dp ON pe.pedido_id = dp.pedido_id
 LEFT JOIN productos AS pr ON dp.producto_id = pr.producto_id
+
+-- 5
+SELECT 
+    dp.producto_id AS detalle_id,
+    pr.nombre AS producto,
+    pr.categoria,
+    pr.precio
+FROM productos AS pr
+RIGHT JOIN detalles_pedidos AS dp ON pr.producto_id = dp.producto_id
