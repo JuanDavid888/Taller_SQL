@@ -19,3 +19,15 @@ FROM pedidos AS p
 JOIN usuarios AS u ON p.cliente_id = u.usuario_id
 JOIN empleados AS e ON p.empleado_id = e.empleado_id
 JOIN usuarios AS e_usuario ON e.usuario_id = e_usuario.usuario_id;
+
+-- 4
+SELECT 
+    dp.pedido_id,
+    pe.cliente_id,
+    pe.empleado_id,
+    pr.nombre AS producto,
+    pe.fecha_pedido,
+    pe.estado
+FROM pedidos AS pe
+LEFT JOIN detalles_pedidos AS dp ON pe.pedido_id = dp.pedido_id
+LEFT JOIN productos AS pr ON dp.producto_id = pr.producto_id
