@@ -2,5 +2,10 @@
 
 SHOW TABLES;
 
+-- 1
 SELECT * FROM usuarios
 WHERE tipo_id = 1;
+
+-- 2
+SELECT nombre, email FROM usuarios
+WHERE ciudad = 'Madrid';
