@@ -35,3 +35,6 @@ WHERE precio = (SELECT MAX(precio) FROM productos);
 -- 8
 SELECT cliente_id, COUNT(pedido_id) AS TotalPedidos FROM pedidos
 GROUP BY cliente_id;
+
+-- 9
+SELECT AVG(salario) AS promedio_salarios FROM empleados;
