@@ -23,3 +23,7 @@ WHERE salario > 2500000;
 SELECT nombre FROM productos
 WHERE categoria = 'Electrnica'
 ORDER BY nombre ASC;
+
+--6
+SELECT pedido_id, cliente_id, fecha_pedido FROM pedidos
+WHERE estado = 'Pendiente';
