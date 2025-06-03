@@ -38,3 +38,7 @@ GROUP BY cliente_id;
 
 -- 9
 SELECT AVG(salario) AS promedio_salarios FROM empleados;
+
+-- 10
+SELECT categoria, COUNT(categoria) AS numero_productos FROM productos
+GROUP BY categoria;
