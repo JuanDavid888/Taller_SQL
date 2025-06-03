@@ -31,3 +31,7 @@ WHERE estado = 'Pendiente';
 --7
 SELECT nombre, precio FROM productos
 WHERE precio = (SELECT MAX(precio) FROM productos);
+
+-- 8
+SELECT cliente_id, COUNT(pedido_id) AS TotalPedidos FROM pedidos
+GROUP BY cliente_id;
