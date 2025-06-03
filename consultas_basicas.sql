@@ -27,3 +27,7 @@ ORDER BY nombre ASC;
 --6
 SELECT pedido_id, cliente_id, fecha_pedido FROM pedidos
 WHERE estado = 'Pendiente';
+
+--7
+SELECT nombre, precio FROM productos
+WHERE precio = (SELECT MAX(precio) FROM productos);
