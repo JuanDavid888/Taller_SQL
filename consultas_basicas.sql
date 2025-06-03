@@ -18,3 +18,8 @@ WHERE precio > 100000;
 SELECT nombre, puesto, salario FROM empleados as e
 JOIN usuarios as u ON e.usuario_id = u.usuario_id
 WHERE salario > 2500000;
+
+-- 5
+SELECT nombre FROM productos
+WHERE categoria = 'Electrnica'
+ORDER BY nombre ASC;
