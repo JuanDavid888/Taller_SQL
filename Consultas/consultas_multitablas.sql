@@ -71,3 +71,8 @@ LEFT JOIN usuarios AS u ON u.usuario_id = pe.cliente_id
 LEFT JOIN detalles_pedidos AS dp ON dp.pedido_id = pe.pedido_id
 LEFT JOIN productos AS pr ON pr.producto_id = dp.producto_id
 WHERE tipo_id = 1;
+
+-- 11
+SELECT pv.nombre AS 'Nombre_proveedor', pr.nombre AS 'Producto' FROM proveedores_productos AS pv_pr
+JOIN proveedores AS pv ON pv.proveedor_id = pv_pr.proveedor_id
+JOIN productos AS pr ON pr.producto_id = pv_pr.producto_id
