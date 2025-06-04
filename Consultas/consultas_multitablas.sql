@@ -75,4 +75,10 @@ WHERE tipo_id = 1;
 -- 11
 SELECT pv.nombre AS 'Nombre_proveedor', pr.nombre AS 'Producto' FROM proveedores_productos AS pv_pr
 JOIN proveedores AS pv ON pv.proveedor_id = pv_pr.proveedor_id
+JOIN productos AS pr ON pr.producto_id = pv_pr.producto_id;
+
+-- 12
+SELECT pv.nombre AS 'Nombre_proveedor', pr.nombre AS 'Producto' FROM proveedores_productos AS pv_pr
+JOIN proveedores AS pv ON pv.proveedor_id = pv_pr.proveedor_id
 JOIN productos AS pr ON pr.producto_id = pv_pr.producto_id
+WHERE pv.nombre = 'Global Components Ltda.';
