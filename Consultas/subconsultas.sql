@@ -14,4 +14,13 @@ WHERE estado = 'Cancelado';
 
 -- 3
 SELECT empleado_id FROM pedidos
-WHERE fecha_pedido >= CURDATE() - INTERVAL  6 MONTH
+WHERE fecha_pedido >= CURDATE() - INTERVAL  6 MONTH;
+
+-- 4
+SELECT 
+    pedido_id,
+    producto_id,
+    (cantidad * precio_unitario) AS 'Precio_mas_alto' 
+FROM detalles_pedidos
+ORDER BY Precio_mas_alto DESC
+LIMIT 1;
