@@ -61,3 +61,13 @@ JOIN detalles_pedidos AS dp ON pe.pedido_id = dp.pedido_id;
 SELECT * FROM usuarios AS u
 CROSS JOIN productos AS pr
 WHERE tipo_id = 1;
+
+-- 10
+SELECT 
+    u.nombre AS 'Nombre_cliente',
+    pr.nombre AS 'Producto_comprado' 
+FROM pedidos AS pe
+LEFT JOIN usuarios AS u ON u.usuario_id = pe.cliente_id
+LEFT JOIN detalles_pedidos AS dp ON dp.pedido_id = pe.pedido_id
+LEFT JOIN productos AS pr ON pr.producto_id = dp.producto_id
+WHERE tipo_id = 1;
