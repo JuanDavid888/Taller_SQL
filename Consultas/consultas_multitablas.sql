@@ -1,4 +1,4 @@
--- Active: 1749055047603@@127.0.0.1@3307@taller_sql
+-- Active: 1749062362566@@127.0.0.1@3307@taller_sql
 
 SHOW TABLES;
 
@@ -55,4 +55,9 @@ WHERE e.empleado_id NOT IN (
 
 -- 8
 SELECT pe.cliente_id, dp.cantidad FROM pedidos AS pe
-JOIN detalles_pedidos AS dp ON pe.pedido_id = dp.pedido_id; 
+JOIN detalles_pedidos AS dp ON pe.pedido_id = dp.pedido_id;
+
+-- 9
+SELECT * FROM usuarios AS u
+CROSS JOIN productos AS pr
+WHERE tipo_id = 1;
