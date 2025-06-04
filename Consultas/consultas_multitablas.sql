@@ -52,3 +52,7 @@ WHERE e.empleado_id NOT IN (
     SELECT e.empleado_id
     FROM pedidos
 );
+
+-- 8
+SELECT pe.cliente_id, dp.cantidad FROM pedidos AS pe
+JOIN detalles_pedidos AS dp ON pe.pedido_id = dp.pedido_id; 
