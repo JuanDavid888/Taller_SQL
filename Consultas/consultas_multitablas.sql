@@ -106,3 +106,9 @@ GROUP BY pv.proveedor_id;
 SELECT pv_pr.proveedor_id, pr.nombre FROM proveedores_productos AS pv_pr
 JOIN productos AS pr ON pv_pr.producto_id = pr.producto_id
 WHERE pv_pr.proveedor_id = 3;
+
+-- 16
+SELECT pr.producto_id, pv.nombre FROM productos AS pr
+JOIN proveedores_productos AS pv_pr ON pv_pr.producto_id = pr.producto_id
+JOIN proveedores AS pv ON pv.proveedor_id = pv_pr.proveedor_id
+WHERE pr.producto_id = 1
