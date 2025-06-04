@@ -112,3 +112,13 @@ SELECT pr.producto_id, pv.nombre FROM productos AS pr
 JOIN proveedores_productos AS pv_pr ON pv_pr.producto_id = pr.producto_id
 JOIN proveedores AS pv ON pv.proveedor_id = pv_pr.proveedor_id
 WHERE pr.producto_id = 1
+
+-- 17
+SELECT 
+    pr.producto_id,
+    pr.nombre,
+    COUNT(pv_pr.proveedor_id) AS Cantidad_proveedores
+FROM proveedores_productos AS pv_pr
+JOIN productos AS pr ON pr.producto_id = pv_pr.producto_id
+GROUP BY pr.producto_id
+ORDER BY pr.producto_id ASC;
