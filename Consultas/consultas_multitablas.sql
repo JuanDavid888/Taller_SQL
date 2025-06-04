@@ -46,10 +46,9 @@ SELECT pe.pedido_id, pe.cliente_id, pe.empleado_id, e.puesto, pe.fecha_pedido FR
 LEFT JOIN empleados AS e ON e.empleado_id = pe.empleado_id; -- Sujeto de data completa
 
 -- 7
-SELECT * FROM pedidos AS pe
-LEFT JOIN empleados AS e ON e.empleado_id = pe.empleado_id
-WHERE e.empleado_id NOT IN (
-    SELECT e.empleado_id
+SELECT * FROM pedidos
+WHERE empleado_id NOT IN (
+    SELECT empleado_id
     FROM pedidos
 );
 
@@ -82,3 +81,10 @@ SELECT pv.nombre AS 'Nombre_proveedor', pr.nombre AS 'Producto' FROM proveedores
 JOIN proveedores AS pv ON pv.proveedor_id = pv_pr.proveedor_id
 JOIN productos AS pr ON pr.producto_id = pv_pr.producto_id
 WHERE pv.nombre = 'Global Components Ltda.';
+
+-- 13
+SELECT * FROM proveedores
+WHERE proveedor_id NOT IN (
+    SELECT proveedor_id
+    FROM proveedores_productos
+);
