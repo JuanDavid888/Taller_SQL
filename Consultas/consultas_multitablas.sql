@@ -3,9 +3,16 @@
 SHOW TABLES;
 
 -- 1
-SELECT nombre AS Cliente, detalle_id, pedido_id, cantidad, precio_unitario  FROM usuarios AS u
-JOIN detalles_pedidos AS d ON u.usuario_id = d.pedido_id
-WHERE u.tipo_id = 1;
+SELECT 
+    u.nombre,
+    dp.pedido_id,
+    dp.producto_id,
+    dp.cantidad,
+    dp.precio_unitario 
+FROM usuarios AS u
+JOIN pedidos AS pe ON pe.cliente_id = u.usuario_id
+JOIN detalles_pedidos AS dp ON dp.pedido_id = pe.pedido_id
+WHERE tipo_id = 1;
 
 -- 2
 SELECT nombre, precio_unitario FROM detalles_pedidos AS dp
