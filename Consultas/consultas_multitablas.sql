@@ -1,4 +1,4 @@
--- Active: 1748975579213@@127.0.0.1@3307@taller_sql
+-- Active: 1748438202902@@127.0.0.1@3307@taller_sql
 
 SHOW TABLES;
 
@@ -40,3 +40,7 @@ SELECT
     pr.precio
 FROM productos AS pr
 RIGHT JOIN detalles_pedidos AS dp ON pr.producto_id = dp.producto_id
+
+-- 6
+SELECT pe.pedido_id, pe.cliente_id, pe.empleado_id, e.puesto, pe.fecha_pedido FROM pedidos AS pe -- Sujeto de intercepcion
+LEFT JOIN empleados AS e ON e.empleado_id = pe.empleado_id; -- Sujeto de data completa
