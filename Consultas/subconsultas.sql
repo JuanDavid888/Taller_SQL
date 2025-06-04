@@ -11,3 +11,7 @@ WHERE dp.precio_unitario > 500000;
 -- 2
 SELECT * FROM pedidos
 WHERE estado = 'Cancelado';
+
+-- 3
+SELECT empleado_id FROM pedidos
+WHERE fecha_pedido >= CURDATE() - INTERVAL  6 MONTH
