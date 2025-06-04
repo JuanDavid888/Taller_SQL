@@ -1,4 +1,4 @@
--- Active: 1748438202902@@127.0.0.1@3307@taller_sql
+-- Active: 1749055047603@@127.0.0.1@3307@taller_sql
 
 SHOW TABLES;
 

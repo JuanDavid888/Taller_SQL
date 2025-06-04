@@ -17,64 +17,65 @@ Durante este taller, aprenderás a:
 
 ## 🔍 Consultas a realizar
 
-1. Mostrar todos los datos de la tabla `usuarios`.
-2. Listar nombres y correos de clientes en Madrid.
-3. Productos con precio > $100.000.
-4. Empleados con salario > $2.500.000.
-5. Productos en categoría "Electrónica" ordenados por nombre.
-6. Pedidos con estado "Pendiente".
-7. Producto más caro.
-8. Total de pedidos por cliente.
-9. Promedio de salarios.
-10. Cantidad de productos por categoría.
-11. Precio de productos > $75 USD y su conversión.
-12. Todos los proveedores registrados.
+1. Consulta todos los datos de la tabla `usuarios` para ver la lista completa de clientes.
+2. Muestra los nombres y correos electrónicos de todos los clientes que residen en la ciudad de Madrid.
+3. Obtén una lista de productos con un precio mayor a $100.000, mostrando solo el nombre y el precio.
+4. Encuentra todos los empleados que tienen un salario superior a $2.500.000, mostrando su nombre, puesto y salario.
+5. Lista los nombres de los productos en la categoría "Electrónica", ordenados alfabéticamente.
+6. Muestra los detalles de los pedidos que están en estado "Pendiente", incluyendo el ID del pedido, el ID del cliente y la fecha del pedido.
+7. Encuentra el nombre y el precio del producto más caro en la base de datos.
+8. Obtén el total de pedidos realizados por cada cliente, mostrando el ID del cliente y el total de pedidos.
+9. Calcula el promedio de salario de todos los empleados en la empresa.
+10. Encuentra el número de productos en cada categoría, mostrando la categoría y el número de productos.
+11. Obtén una lista de productos con un precio mayor a $75 USD, mostrando solo el nombre, el precio y su respectivo precio en USD.
+12. Lista todos los proveedores registrados.
 
 ## 🔗 Consultas Multitabla (JOINS)
 
-1. Nombres de clientes y detalles de pedidos.
-2. Productos pedidos con su precio unitario.
-3. Clientes y empleados que gestionaron sus pedidos.
-4. Todos los pedidos, con o sin productos (`LEFT JOIN`).
-5. Productos no incluidos en pedidos (`RIGHT JOIN`).
-6. Empleados y pedidos gestionados (si existen).
-7. Empleados sin pedidos (`LEFT JOIN` con `WHERE`).
-8. Total gastado en cada pedido.
-9. `CROSS JOIN` entre clientes y productos.
-10. Clientes y productos comprados (incluso sin compras).
-11. Proveedores por producto.
-12. Productos por proveedor específico.
-13. Proveedores sin productos asociados.
-14. Cantidad de proveedores por producto.
-15. Productos suministrados por `proveedor_id = 3`.
-16. Proveedores del `producto_id = 1` con contacto.
-17. Productos con cantidad de proveedores.
-18. Proveedores con total de productos suministrados.
+1. Encuentra los nombres de los clientes y los detalles de sus pedidos.
+2. Lista todos los productos pedidos junto con el precio unitario de cada pedido
+3. Encuentra los nombres de los clientes y los nombres de los empleados que gestionaron sus pedidos
+4. Muestra todos los pedidos y, si existen, los productos en cada pedido, incluyendo los pedidos sin productos usando `LEFT JOIN`
+5. Encuentra los productos y, si existen, los detalles de pedidos en los que no se ha incluido el producto usando `RIGHT JOIN`.
+6. Lista todos los empleados junto con los pedidos que han gestionado, si existen, usando `LEFT JOIN` para ver los empleados sin pedidos.
+7. Encuentra los empleados que no han gestionado ningún pedido usando un `LEFT JOIN` combinado con `WHERE`.
+8. Calcula el total gastado en cada pedido, mostrando el ID del pedido y el total, usando `JOIN`.
+9. Realiza un `CROSS JOIN` entre clientes y productos para mostrar todas las combinaciones posibles de clientes y productos.
+10. Encuentra los nombres de los clientes y los productos que han comprado, si existen, incluyendo los clientes que no han realizado pedidos usando `LEFT JOIN`.
+11. Listar todos los proveedores que suministran un determinado producto.
+12. Obtener todos los productos que ofrece un proveedor específico.
+13. Lista los proveedores que no están asociados a ningún producto (es decir, que aún no suministran).
+14. Contar cuántos proveedores tiene cada producto.
+15. Para un proveedor determinado (p. ej. `proveedor_id = 3`), muestra el nombre de todos los productos que suministra.
+16. Para un producto específico (p. ej. `producto_id = 1`), muestra todos los proveedores que lo distribuyen, con sus datos de contacto.
+17. Cuenta cuántos proveedores tiene cada producto, listando `producto_id`, `nombre` y `cantidad_proveedores`.
+18. Cuenta cuántos productos suministra cada proveedor, mostrando `proveedor_id`, `nombre_proveedor` y `total_productos`.
 
 ---
 
 ## 🧠 Subconsultas
 
-1. Clientes con pedidos mayores a $500.000.
-2. Productos nunca pedidos.
-3. Empleados que gestionaron pedidos en últimos 6 meses.
-4. Pedido con mayor total de ventas.
-5. Clientes con más pedidos que el promedio.
-6. Productos más caros que el promedio.
-7. Clientes que gastaron más de $1.000.000.
-8. Empleados con salario mayor al promedio.
-9. Productos con ingresos mayores al promedio.
-10. Cliente del pedido más reciente.
-11. Productos pedidos en últimos 3 meses.
-12. Empleados sin pedidos gestionados.
-13. Clientes con más de 3 tipos distintos de productos.
-14. Producto más caro pedido al menos 5 veces.
-15. Clientes cuyo primer pedido fue un año después del registro.
-16. Productos con stock inferior al promedio.
-17. Clientes con menos de 3 pedidos.
-18. Productos pedidos por clientes registrados en el último año.
-19. Empleado con más pedidos gestionados.
-20. Productos con cantidades pedidas superiores al promedio.
-21. Proveedores con más productos que el promedio.
-22. Proveedores solo de productos "Electrónica".
-23. Productos con proveedores registrados hace más de un año.
+1. Encuentra los nombres de los clientes que han realizado al menos un pedido de más de $500.000.
+2. Muestra los productos que nunca han sido pedidos.
+3. Lista los empleados que han gestionado pedidos en los últimos 6 meses.
+4. Encuentra el pedido con el total de ventas más alto.
+5. Muestra los nombres de los clientes que han realizado más pedidos que el promedio de pedidos de todos los clientes.
+6. Obtén los productos cuyo precio es superior al precio promedio de todos los productos.
+7. Lista los clientes que han gastado más de $1.000.000 en total.
+8. Encuentra los empleados que ganan un salario mayor al promedio de la empresa.
+9. Obtén los productos que generaron ingresos mayores al ingreso promedio por producto.
+10. Encuentra el nombre del cliente que realizó el pedido más reciente.
+11. Muestra los productos pedidos al menos una vez en los últimos 3 meses.
+12. Lista los empleados que no han gestionado ningún pedido.
+13. Encuentra los clientes que han comprado más de tres tipos distintos de productos.
+14. Muestra el nombre del producto más caro que se ha pedido al menos cinco veces.
+15. Lista los clientes cuyo primer pedido fue un año después de su registro.
+
+16. Encuentra los nombres de los productos que tienen un stock inferior al promedio del stock de todos los productos.
+17. Lista los clientes que han realizado menos de tres pedidos.
+18. Encuentra los nombres de los productos que fueron pedidos por los clientes que registraron en el último año.
+19. Obtén el nombre del empleado que gestionó el mayor número de pedidos.
+20. Lista los productos que han sido comprados en cantidades mayores que el promedio de cantidad de compra de todos los productos.
+21. Proveedores que suministran más productos que el promedio de productos por proveedor.
+22. Proveedores que solo suministran productos de la categoría "Electrónica".
+23. Productos que solo tienen proveedores registrados hace más de un año.
