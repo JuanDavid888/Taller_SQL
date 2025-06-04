@@ -117,8 +117,17 @@ WHERE pr.producto_id = 1
 SELECT 
     pr.producto_id,
     pr.nombre,
-    COUNT(pv_pr.proveedor_id) AS Cantidad_proveedores
+    COUNT(pv_pr.proveedor_id) AS 'Cantidad_proveedores'
 FROM proveedores_productos AS pv_pr
 JOIN productos AS pr ON pr.producto_id = pv_pr.producto_id
 GROUP BY pr.producto_id
 ORDER BY pr.producto_id ASC;
+
+-- 18
+SELECT 
+    pv_pr.proveedor_id,
+    pv.nombre,
+    COUNT(pv_pr.producto_id) AS 'Cantidad_productos'
+FROM proveedores_productos AS pv_pr
+JOIN proveedores AS pv ON pv_pr.proveedor_id = pv.proveedor_id
+GROUP BY pv_pr.proveedor_id;
