@@ -44,3 +44,11 @@ RIGHT JOIN detalles_pedidos AS dp ON pr.producto_id = dp.producto_id
 -- 6
 SELECT pe.pedido_id, pe.cliente_id, pe.empleado_id, e.puesto, pe.fecha_pedido FROM pedidos AS pe -- Sujeto de intercepcion
 LEFT JOIN empleados AS e ON e.empleado_id = pe.empleado_id; -- Sujeto de data completa
+
+-- 7
+SELECT * FROM pedidos AS pe
+LEFT JOIN empleados AS e ON e.empleado_id = pe.empleado_id
+WHERE e.empleado_id NOT IN (
+    SELECT e.empleado_id
+    FROM pedidos
+);
