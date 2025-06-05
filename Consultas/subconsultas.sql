@@ -202,3 +202,35 @@ HAVING Cantidad > (
     FROM detalles_pedidos
 )
 ORDER BY Cantidad DESC;
+
+-- 21
+SELECT
+    pv.proveedor_id,
+    pv.nombre,
+    COUNT(pv_pr.producto_id) AS Productos_proveedor
+FROM proveedores pv
+JOIN proveedores_productos pv_pr ON pv.proveedor_id = pv_pr.producto_id
+GROUP BY pv.nombre, pv.proveedor_id
+HAVING Productos_proveedor <= (
+    SELECT AVG(Promedio_productos_Proveedor)
+    FROM (
+        SELECT COUNT(pv_pr2.producto_id) AS Promedio_productos_Proveedor
+        FROM proveedores_productos pv_pr2
+    ) AS sub
+)
+
+SELECT
+    pv.proveedor_id,
+    pv.nombre,
+    COUNT(pv_pr.producto_id) AS Productos_proveedor
+FROM proveedores pv
+JOIN proveedores_productos pv_pr ON pv.proveedor_id = pv_pr.proveedor_id
+GROUP BY pv.proveedor_id, pv.nombre
+HAVING Productos_proveedor > (
+    SELECT AVG(Numero_productos)
+    FROM (
+        SELECT COUNT(pv_pr2.producto_id) AS Numero_productos
+        FROM proveedores_productos pv_pr2
+        GROUP BY proveedor_id
+    ) AS sub
+);
