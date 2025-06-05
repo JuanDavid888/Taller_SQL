@@ -119,4 +119,16 @@ FROM usuarios u
 JOIN pedidos pe ON u.usuario_id = pe.cliente_id
 JOIN detalles_pedidos dp ON pe.pedido_id = dp.pedido_id
 GROUP BY u.usuario_id
-HAVING COUNT(DISTINCT dp.producto_id) > 3;
+HAVING Tipo_producto_distinto > 3;
+
+-- 14
+SELECT
+    pr.nombre,
+    COUNT(dp.producto_id) AS Veces_pedidas,
+    MAX(dp.precio_unitario) AS Mayor_precio
+FROM productos pr
+JOIN detalles_pedidos dp ON pr.producto_id = dp.producto_id
+GROUP BY pr.nombre
+HAVING Veces_pedidas >= 5
+ORDER BY Mayor_precio DESC
+LIMIT 1;
