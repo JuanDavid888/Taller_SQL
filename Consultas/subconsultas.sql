@@ -102,4 +102,11 @@ SELECT
 FROM pedidos pe
 LEFT JOIN detalles_pedidos dp ON pe.pedido_id = dp.pedido_id
 LEFT JOIN productos pr ON pr.producto_id = dp.producto_id 
-WHERE pe.fecha_pedido >= CURDATE() - INTERVAL 3 MONTH
+WHERE pe.fecha_pedido >= CURDATE() - INTERVAL 3 MONTH;
+
+-- 12
+SELECT * FROM empleados
+WHERE empleado_id NOT IN (
+    SELECT empleado_id
+    FROM pedidos
+);
