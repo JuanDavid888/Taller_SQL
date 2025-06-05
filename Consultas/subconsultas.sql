@@ -243,3 +243,18 @@ FROM proveedores pv
 JOIN proveedores_productos pv_pr ON pv.proveedor_id = pv_pr.proveedor_id
 JOIN productos pr ON pr.producto_id = pv_pr.producto_id
 WHERE pr.categoria = 'Electrnica'
+
+-- 23
+SELECT
+    pr.producto_id,
+    pr.nombre AS Producto,
+    pv.nombre AS Proveedor
+FROM proveedores pv
+LEFT JOIN proveedores_productos pv_pr ON pv_pr.proveedor_id = pv.proveedor_id
+LEFT JOIN productos pr ON pr.producto_id = pv_pr.producto_id
+WHERE pv.fecha_registro > CURDATE() - INTERVAL 3 YEAR
+AND pr.producto_id IN (
+    SELECT pv_pr.producto_id
+    FROM proveedores_productos
+)
+ORDER BY pr.producto_id ASC;
