@@ -188,3 +188,17 @@ JOIN usuarios e_usu ON e.usuario_id = e_usu.usuario_id
 GROUP BY e.empleado_id
 ORDER BY Numero_pedidos DESC
 LIMIT 1;
+
+-- 20
+SELECT 
+    dp.producto_id,
+    pr.nombre,
+    ROUND(AVG(dp.cantidad)) AS Cantidad
+FROM productos pr
+JOIN detalles_pedidos dp ON pr.producto_id = dp.producto_id
+GROUP BY dp.producto_id, pr.nombre
+HAVING Cantidad > (
+    SELECT AVG(cantidad)
+    FROM detalles_pedidos
+)
+ORDER BY Cantidad DESC;
