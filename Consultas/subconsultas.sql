@@ -71,3 +71,13 @@ HAVING Salario > (
     SELECT AVG(salario)
     FROM empleados
 );
+
+-- 9
+SELECT 
+    dp.producto_id,
+    pr.nombre,
+    (dp.cantidad * dp.precio_unitario) AS Total 
+FROM detalles_pedidos dp
+JOIN productos pr ON pr.producto_id = dp.producto_id
+ORDER BY Total DESC
+LIMIT 1;
