@@ -362,7 +362,14 @@ INSERT INTO pedidos (cliente_id, empleado_id, fecha_pedido, estado) VALUES
 (17, 17, '2023-09-10', 'Pendiente'),
 (18, 18, '2023-09-25', 'Enviado'),
 (19, 19, '2023-10-05', 'Cancelado'),
-(20, 20, '2023-10-18', 'Entregado');
+(20, 20, '2023-10-18', 'Entregado'),
+(21,1,'2025-06-02','Pendiente'),
+(21,1,'2025-06-05','Entregado'),
+(21,1,'2025-06-10','Pendiente'),
+(21,1,'2025-06-12','Cancelado'),
+(21,1,'2025-06-15','Entregado'),
+(21,1,'2025-06-18','Pendiente'),
+(21,1,'2025-06-20','Entregado');
 
 INSERT INTO detalles_pedidos (pedido_id, producto_id, cantidad, precio_unitario) VALUES
 (1,  1,  2,  4148678.51),
