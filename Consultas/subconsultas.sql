@@ -176,3 +176,15 @@ FROM pedidos pe
 LEFT JOIN detalles_pedidos dp ON pe.pedido_id = dp.pedido_id
 LEFT JOIN productos pr ON pr.producto_id = dp.producto_id 
 WHERE pe.fecha_pedido >= CURDATE() - INTERVAL 1 YEAR;
+
+-- 19
+SELECT 
+    e_usu.nombre,
+    COUNT(pe.pedido_id) AS Numero_pedidos
+FROM pedidos pe
+JOIN empleados e ON e.empleado_id = pe.empleado_id
+JOIN usuarios u ON u.usuario_id = pe.cliente_id
+JOIN usuarios e_usu ON e.usuario_id = e_usu.usuario_id
+GROUP BY e.empleado_id
+ORDER BY Numero_pedidos DESC
+LIMIT 1;
