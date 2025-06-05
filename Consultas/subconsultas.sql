@@ -118,8 +118,8 @@ SELECT
 FROM usuarios u
 JOIN pedidos pe ON u.usuario_id = pe.cliente_id
 JOIN detalles_pedidos dp ON pe.pedido_id = dp.pedido_id
-GROUP BY u.usuario_id
-HAVING Tipo_producto_distinto > 3;
+GROUP BY u.nombre
+HAVING Tipo_producto_distinto < 3;
 
 -- 14
 SELECT
@@ -234,3 +234,12 @@ HAVING Productos_proveedor > (
         GROUP BY proveedor_id
     ) AS sub
 );
+
+-- 22
+SELECT
+    pv.proveedor_id,
+    pv.nombre
+FROM proveedores pv
+JOIN proveedores_productos pv_pr ON pv.proveedor_id = pv_pr.proveedor_id
+JOIN productos pr ON pr.producto_id = pv_pr.producto_id
+WHERE pr.categoria = 'Electrnica'
