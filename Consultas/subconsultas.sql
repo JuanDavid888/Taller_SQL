@@ -80,4 +80,15 @@ SELECT
 FROM detalles_pedidos dp
 JOIN productos pr ON pr.producto_id = dp.producto_id
 ORDER BY Total DESC
+LIMIT 3;
+
+-- 10
+SELECT
+    pe.cliente_id,
+    u.nombre,
+    pe.fecha_pedido
+FROM pedidos pe
+JOIN usuarios u ON u.usuario_id = pe.cliente_id
+WHERE tipo_id = 1
+ORDER BY pe.fecha_pedido DESC
 LIMIT 1;
