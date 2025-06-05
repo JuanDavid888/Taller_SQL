@@ -60,3 +60,14 @@ FROM detalles_pedidos dp
 JOIN pedidos p ON p.pedido_id =  dp.pedido_id
 JOIN usuarios u ON u.usuario_id = p.cliente_id
 WHERE dp.precio_unitario > 1000000;
+
+-- 8
+SELECT 
+    e.empleado_id,
+    AVG(e.salario) AS Salario
+FROM empleados AS e
+GROUP BY e.empleado_id
+HAVING Salario > (
+    SELECT AVG(salario)
+    FROM empleados
+);
