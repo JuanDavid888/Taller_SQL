@@ -110,3 +110,13 @@ WHERE empleado_id NOT IN (
     SELECT empleado_id
     FROM pedidos
 );
+
+-- 13
+SELECT
+    u.nombre,
+    COUNT(DISTINCT dp.producto_id) AS Tipo_producto_distinto
+FROM usuarios u
+JOIN pedidos pe ON u.usuario_id = pe.cliente_id
+JOIN detalles_pedidos dp ON pe.pedido_id = dp.pedido_id
+GROUP BY u.usuario_id
+HAVING COUNT(DISTINCT dp.producto_id) > 3;
