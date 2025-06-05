@@ -1,4 +1,4 @@
--- Active: 1748438202902@@127.0.0.1@3307@taller_sql
+-- Active: 1749062362566@@127.0.0.1@3307@taller_sql
 
 SHOW TABLES;
 
@@ -60,7 +60,10 @@ WHERE empleado_id NOT IN (
 );
 
 -- 8
-SELECT pe.cliente_id, dp.cantidad FROM pedidos AS pe
+SELECT 
+    pe.cliente_id,
+    dp.cantidad,
+    (dp.cantidad * dp.precio_unitario) AS Total FROM pedidos AS pe
 JOIN detalles_pedidos AS dp ON pe.pedido_id = dp.pedido_id;
 
 -- 9
