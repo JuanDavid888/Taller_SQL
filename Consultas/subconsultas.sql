@@ -142,3 +142,14 @@ FROM usuarios u
 JOIN pedidos pe ON u.usuario_id = pe.cliente_id
 GROUP BY u.nombre, u.fecha_registro
 HAVING MIN(pe.fecha_pedido) > DATE_ADD(u.fecha_registro, INTERVAL 1 YEAR)
+
+-- 16
+SELECT
+    nombre,
+    ROUND(AVG(stock)) AS Stock
+FROM productos
+GROUP BY nombre
+HAVING Stock > (
+    SELECT AVG(stock)
+    FROM productos
+)
