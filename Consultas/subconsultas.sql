@@ -132,3 +132,13 @@ GROUP BY pr.nombre
 HAVING Veces_pedidas >= 5
 ORDER BY Mayor_precio DESC
 LIMIT 1;
+
+-- 15
+SELECT
+    u.nombre,
+    u.fecha_registro,
+    MIN(pe.fecha_pedido)
+FROM usuarios u
+JOIN pedidos pe ON u.usuario_id = pe.cliente_id
+GROUP BY u.nombre, u.fecha_registro
+HAVING MIN(pe.fecha_pedido) > DATE_ADD(u.fecha_registro, INTERVAL 1 YEAR)
