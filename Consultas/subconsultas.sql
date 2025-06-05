@@ -165,3 +165,14 @@ JOIN pedidos pe ON pe.pedido_id = dp.pedido_id
 JOIN usuarios u ON u.usuario_id = pe.cliente_id
 GROUP BY u.nombre, pr.nombre
 HAVING Veces_pedidas < 3
+
+-- 18
+SELECT
+    pe.pedido_id,
+    pr.producto_id,
+    pr.nombre,
+    pe.fecha_pedido
+FROM pedidos pe
+LEFT JOIN detalles_pedidos dp ON pe.pedido_id = dp.pedido_id
+LEFT JOIN productos pr ON pr.producto_id = dp.producto_id 
+WHERE pe.fecha_pedido >= CURDATE() - INTERVAL 1 YEAR;
