@@ -153,3 +153,15 @@ HAVING Stock > (
     SELECT AVG(stock)
     FROM productos
 )
+
+-- 17
+SELECT
+    u.nombre AS Cliente,
+    pr.nombre AS Producto,
+    COUNT(dp.producto_id) AS Veces_pedidas
+FROM productos pr
+JOIN detalles_pedidos dp ON pr.producto_id = dp.producto_id
+JOIN pedidos pe ON pe.pedido_id = dp.pedido_id
+JOIN usuarios u ON u.usuario_id = pe.cliente_id
+GROUP BY u.nombre, pr.nombre
+HAVING Veces_pedidas < 3
