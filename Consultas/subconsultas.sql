@@ -1,4 +1,4 @@
--- Active: 1748438202902@@127.0.0.1@3307@taller_sql
+-- Active: 1749062362566@@127.0.0.1@3307@taller_sql
 
 SHOW TABLES;
 
@@ -48,5 +48,15 @@ SELECT
 FROM productos AS pr
 GROUP BY pr.nombre
 HAVING Precio_producto > (
-    SELECT AVG(precio) FROM productos
-)
+    SELECT AVG(precio)
+    FROM productos
+);
+
+-- 7
+SELECT 
+    u.nombre,
+    dp.precio_unitario
+FROM detalles_pedidos dp
+JOIN pedidos p ON p.pedido_id =  dp.pedido_id
+JOIN usuarios u ON u.usuario_id = p.cliente_id
+WHERE dp.precio_unitario > 1000000;
