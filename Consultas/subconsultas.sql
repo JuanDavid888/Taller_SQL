@@ -40,3 +40,13 @@ HAVING Total_pedidos > (
         GROUP BY pe2.cliente_id
     ) AS sub
 );
+
+-- 6
+SELECT
+    pr.nombre AS Nombre,
+    AVG(pr.precio) AS Precio_producto
+FROM productos AS pr
+GROUP BY pr.nombre
+HAVING Precio_producto > (
+    SELECT AVG(precio) FROM productos
+)
