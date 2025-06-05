@@ -45,8 +45,8 @@ SELECT
     pr.nombre AS producto,
     pr.categoria,
     pr.precio
-FROM productos AS pr
-RIGHT JOIN detalles_pedidos AS dp ON pr.producto_id = dp.producto_id
+FROM detalles_pedidos AS dp
+RIGHT JOIN productos AS pr ON pr.producto_id = dp.producto_id
 
 -- 6
 SELECT pe.pedido_id, pe.cliente_id, pe.empleado_id, e.puesto, pe.fecha_pedido FROM pedidos AS pe -- Sujeto de intercepcion

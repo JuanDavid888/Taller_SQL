@@ -33,9 +33,9 @@ FROM pedidos AS pe
 JOIN usuarios AS u ON u.usuario_id = pe.cliente_id
 GROUP BY pe.cliente_id
 HAVING Total_pedidos > (
-    SELECT AVG(Mayor_pedido)
+    SELECT AVG(Pedidos_usuarios)
     FROM (
-        SELECT COUNT(pe2.pedido_id) AS pedidos_por_usuario
+        SELECT COUNT(pe2.pedido_id) AS Pedidos_usuarios
         FROM pedidos AS pe2
         GROUP BY pe2.cliente_id
     ) AS sub
